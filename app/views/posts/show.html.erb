@@ -1,0 +1,23 @@
+<p><%= @post.body %></p>
+
+<h4> By <%= @post.author.username %> </h4>
+
+<% if @post.author == @current_author %>
+  <ul>
+    <li><%= link_to "Edit", edit_post_path(@post) %></li>
+  </ul>
+
+  <ul>
+    <li><%= link_to "Destroy", post_path(@post), data: {
+                      turbo_method: :delete,
+                      turbo_confirm: "Are you sure?"
+                    } %>
+    </li>
+  </ul>
+<% end %>
+
+<h2>Comments</h2>
+<%= render @post.comments %>
+
+<h2>Add a comment:</h2>
+<%= render "comments/form", post: @post, comment: @comment || @post.comments.build %>

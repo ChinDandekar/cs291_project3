@@ -1,0 +1,16 @@
+<%= form_with model: [post, comment] do |form| %>
+  <% if comment.errors.any? %>
+    <div>
+      <% comment.errors.full_messages_for(:body).each do |message| %>
+        <div><%= message %></div>
+      <% end %>
+    </div>
+  <% end %> 
+
+  <p>
+    <%= form.text_area :body %>
+  </p>
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>

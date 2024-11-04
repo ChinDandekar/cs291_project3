@@ -1,0 +1,6 @@
+<li>
+    <p><%= post.body %></p>
+    <h4> By <%= post.author.username %> </h4>
+    <p> <%= link_to post.comment_count, post %> comments </p>
+    <p> Last updated at: <%= post.updated_at%> </p>
+</li>

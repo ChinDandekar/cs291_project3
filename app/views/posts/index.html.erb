@@ -1,0 +1,12 @@
+<h1>Posts</h1>
+
+<ul>
+  <%= render @posts %>
+</ul>
+
+<%= link_to "New Post", new_post_path %>
+
+<%= link_to "Logout", logout_path, data: {
+                      turbo_method: :delete,
+                      turbo_confirm: "Are you sure you want to log out?"
+                    }%>
